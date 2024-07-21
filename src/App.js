@@ -23,11 +23,21 @@ function App() {
         >
           To Do:
         </h2>
-        {taskList.map((task, idx) => (
-          <div key={idx}>
-            <Todo task={task} />
-          </div>
-        ))}
+        {taskList
+          .slice(0)
+          .reverse()
+          .map((task, idx) => (
+            <div
+              key={new Date().getMilliseconds().toPrecision() + Math.random()}
+            >
+              <Todo
+                task={task}
+                index={idx}
+                taskList={taskList}
+                setTaskList={setTaskList}
+              />
+            </div>
+          ))}
       </div>
     </>
   );
