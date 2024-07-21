@@ -109,7 +109,7 @@ const AddTask = ({ taskList, setTaskList }) => {
                   className="bg-[#134B70] text-white px-6 py-3 rounded
          uppercase font-semibold text-sm mx-1.5 hover:opacity-85 
          transition-opacity duration-500"
-                  type="button"
+                  type="submit"
                   onClick={handleAdd}
                 >
                   Add Task
