@@ -6,13 +6,12 @@ function App() {
       <h1 className="text-3xl font-bold text-center my-3 py-4 px-6">
         Kanban Task Tracker
       </h1>
-
-      <p className="text-xl px-6">
-        <span>Hi there, </span>
-        <span>to add a new task </span>
-        <span>Click </span>
+      <div className="flex flex-row">
+        <p className="text-xl pl-1">Hi there, </p>
+        <p className="text-xl pl-1"> Click </p>
         <AddTask />
-      </p>
+        <p className="text-xl pl-1">to add a new task </p>
+      </div>
     </>
   );
 }
