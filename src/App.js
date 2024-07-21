@@ -8,10 +8,10 @@ function App() {
       </h1>
 
       <p className="text-xl px-6">
-        <span>Hi there </span>
+        <span>Hi there, </span>
+        <span>to add a new task </span>
         <span>Click </span>
         <AddTask />
-        <span> to add a new task</span>
       </p>
     </>
   );
