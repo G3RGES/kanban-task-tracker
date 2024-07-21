@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AddTask from "./components/AddTask";
+import Todo from "./components/Todo";
 
 function App() {
   const [taskList, setTaskList] = useState([]);
@@ -15,12 +16,19 @@ function App() {
         <AddTask taskList={taskList} setTaskList={setTaskList} />
         <p className="text-xl my-2">to add a new task </p>
       </div>
-      {taskList.map((task, idx) => (
-        <div key={idx}>
-          <p className="">{task.projectName}</p>
-          <p className="">{task.taskDescription}</p>
-        </div>
-      ))}
+      <div className="">
+        <h2
+          className="bg-[#D4BDAC] my-4 ml-6 text-xl w-3/4 max-w-lg font-semibold text-center
+        rounded-lg py-2 px-4"
+        >
+          To Do:
+        </h2>
+        {taskList.map((task, idx) => (
+          <div key={idx}>
+            <Todo task={task} />
+          </div>
+        ))}
+      </div>
     </>
   );
 }
