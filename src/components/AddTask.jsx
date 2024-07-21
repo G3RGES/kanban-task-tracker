@@ -4,19 +4,30 @@ const AddTask = ({ taskList, setTaskList }) => {
   const [addModal, setAddModal] = useState(false);
   const [projectName, setProjectName] = useState("");
   const [taskDescription, setTaskDescription] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleAdd = (e) => {
     e.preventDefault();
-    setTaskList([...taskList, { projectName, taskDescription }]);
-    setAddModal(false);
-    setProjectName("");
-    setTaskDescription("");
+    if (!projectName) {
+      setErrorMessage("Project name Can't be empty");
+    } else {
+      setTaskList([...taskList, { projectName, taskDescription }]);
+      setAddModal(false);
+      setProjectName("");
+      setTaskDescription("");
+    }
   };
 
   const handleInput = (e) => {
     const { name, value } = e.target;
 
-    if (name === "projectName") setProjectName(value);
+    if (name === "projectName") {
+      setProjectName(value);
+      setErrorMessage("");
+    }
+    if (name === "projectName" && value === "") {
+      setErrorMessage("This field Can't be empty");
+    }
 
     if (name === "taskDescription") setTaskDescription(value);
 
@@ -74,7 +85,7 @@ const AddTask = ({ taskList, setTaskList }) => {
                   </label>
                   <input
                     className="w-full bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none
-                  rounded-md px-4 py-3 mb-5 leading-tight focus:bg-white "
+                  rounded-md px-4 py-3 leading-tight focus:bg-white "
                     id="project-name"
                     type="text"
                     placeholder="project name"
@@ -83,6 +94,9 @@ const AddTask = ({ taskList, setTaskList }) => {
                     onChange={handleInput}
                     required
                   />
+                  <p className="text-red-500 text-center mt-2 mb-5">
+                    {errorMessage}
+                  </p>
                 </div>
                 <div className="">
                   <label
