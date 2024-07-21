@@ -1,6 +1,7 @@
 import React from "react";
+import EditTask from "./EditTask";
 
-const Todo = ({ task }) => {
+const Todo = ({ task, index, taskList, setTaskList }) => {
   return (
     <>
       <div
@@ -10,14 +11,12 @@ const Todo = ({ task }) => {
         <div className="w-full flex flex-row justify-between items-center">
           <p className="font-semibold text-xl ">{task.projectName}</p>
 
-          <button
-            className="bg-[#677D6A] text-white px-6 py-3 rounded
-         uppercase font-semibold text-sm mx-1.5 hover:opacity-85 
-         transition-opacity duration-500"
-            type="button"
-          >
-            Edit
-          </button>
+          <EditTask
+            task={task}
+            index={index}
+            taskList={taskList}
+            setTaskList={setTaskList}
+          />
         </div>
         <p className="text-lg py-2 ">{task.taskDescription}</p>
 
@@ -25,7 +24,7 @@ const Todo = ({ task }) => {
           <button
             className="bg-[#A0153E] text-white px-6 py-3 rounded
          uppercase font-semibold text-sm mx-1.5 hover:opacity-85 
-         transition-opacity duration-500"
+         transition-opacity duration-500 mt-6 mb-1"
           >
             Delete
           </button>
