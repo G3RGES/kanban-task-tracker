@@ -2,6 +2,14 @@ import React from "react";
 import EditTask from "./EditTask";
 
 const Todo = ({ task, index, taskList, setTaskList }) => {
+  const handleDelete = (itemID) => {
+    let removeIndex = taskList.indexOf(task);
+    taskList.splice(removeIndex, 1);
+    setTaskList((currentTasks) =>
+      currentTasks.filter((todo) => todo.id !== itemID)
+    );
+  };
+
   return (
     <>
       <div
@@ -25,6 +33,7 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
             className="bg-[#A0153E] text-white px-6 py-3 rounded
          uppercase font-semibold text-sm mx-1.5 hover:opacity-85 
          transition-opacity duration-500 mt-6 mb-1"
+            onClick={handleDelete}
           >
             Delete
           </button>
