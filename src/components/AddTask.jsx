@@ -18,7 +18,7 @@ const AddTask = () => {
         <>
           <div
             className="overflow-x-hidden overflow-y-auto fixed inset-0
-           z-100 flex items-center justify-center"
+           z-100 flex items-center justify-center mt-5"
           >
             <div
               className="flex flex-col  border rounded-md
@@ -43,14 +43,45 @@ const AddTask = () => {
                 </button>
               </div>
               <form className=" p-6">
-                <input
-                  className="w-full bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none
+                <div className="">
+                  <label
+                    className="tracking-wide uppercase text-gray-700 text-xs font-semibold
+                mb-2 block"
+                    htmlFor="project-name"
+                  >
+                    Project name
+                  </label>
+                  <input
+                    className="w-full bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none
                   rounded-md px-4 py-3 mb-5 leading-tight focus:bg-white "
-                  id="project-name"
-                  type="text"
-                  placeholder="project name"
-                />
+                    id="project-name"
+                    type="text"
+                    placeholder="project name"
+                    required
+                  />
+                </div>
+                <div className="">
+                  <label
+                    className="tracking-wide uppercase text-gray-700 text-xs font-semibold
+                mb-2 block"
+                    htmlFor="task-description"
+                  >
+                    Task description
+                  </label>
+                  <textarea
+                    className="w-full bg-gray-200 text-gray-700 border border-gray-300 focus:outline-none
+                  rounded-md px-4 py-3 mb-5 leading-tight focus:bg-white "
+                    id="task-description"
+                    rows={3}
+                    placeholder="Task description"
+                  />
+                </div>
               </form>
+              <div className="">
+                <button className="" type="">
+                  Add Task
+                </button>
+              </div>
             </div>
           </div>
         </>
