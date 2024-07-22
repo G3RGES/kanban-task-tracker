@@ -35,7 +35,7 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
       projectName: task.projectName,
       taskDescription: task.taskDescription,
       timestamp: task.timestamp,
-      duration: task.duration,
+      duration: time,
     });
   };
 
