@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import EditTask from "./EditTask";
 
 const Todo = ({ task, index, taskList, setTaskList }) => {
-  const [time, setTime] = useState(0);
+  const [time, setTime] = useState(task.duration);
   const [running, setRunning] = useState(false);
 
   useEffect(() => {
@@ -21,9 +21,11 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
   const handleDelete = (itemID) => {
     let removeIndex = taskList.indexOf(task);
     taskList.splice(removeIndex, 1);
-    setTaskList((currentTasks) =>
-      currentTasks.filter((todo) => todo.id !== itemID)
-    );
+    // setTaskList((currentTasks) =>
+    //   currentTasks.filter((todo) => todo.id !== itemID)
+    // );
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+    window.location.reload();
   };
 
   const handleStop = () => {
@@ -37,6 +39,9 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
       timestamp: task.timestamp,
       duration: time,
     });
+
+    localStorage.setItem("taskList", JSON.stringify(taskList));
+    window.location.reload();
   };
 
   return (
