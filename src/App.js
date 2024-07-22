@@ -24,23 +24,34 @@ function App() {
         <AddTask taskList={taskList} setTaskList={setTaskList} />
         <p className="text-xl my-2">to add a new task </p>
       </div>
-      <div className="">
-        <h2
-          className="bg-[#D4BDAC] my-4 ml-6 text-xl w-3/4 max-w-lg font-semibold text-center
+      <div className="flex flex-row">
+        <div className="w-full">
+          <h2
+            className="bg-[#D4BDAC] my-4 ml-6 text-xl w-3/4 max-w-lg font-semibold text-center
         rounded-lg py-2 px-4"
-        >
-          To Do:
-        </h2>
-        {taskList.map((task, idx) => (
-          <Todo
-            // key={new Date().getMilliseconds().toPrecision() + Math.random()}
-            key={idx}
-            task={task}
-            index={idx}
-            taskList={taskList}
-            setTaskList={setTaskList}
-          />
-        ))}
+          >
+            To Do:
+          </h2>
+          {taskList.map((task, idx) => (
+            <Todo
+              // key={new Date().getMilliseconds().toPrecision() + Math.random()}
+              key={idx}
+              task={task}
+              index={idx}
+              taskList={taskList}
+              setTaskList={setTaskList}
+            />
+          ))}
+        </div>
+
+        <div className="w-full">
+          <h2
+            className="bg-[#D4BDAC] my-4 ml-6 text-xl w-3/4 max-w-lg font-semibold text-center
+        rounded-lg py-2 px-4"
+          >
+            Completed:
+          </h2>
+        </div>
       </div>
     </>
   );
