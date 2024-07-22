@@ -11,7 +11,11 @@ const AddTask = ({ taskList, setTaskList }) => {
     if (!projectName) {
       setErrorMessage("Project name Can't be empty");
     } else {
-      setTaskList([...taskList, { projectName, taskDescription }]);
+      let timestamp = new Date().getTime();
+      setTaskList([
+        ...taskList,
+        { projectName, taskDescription, timestamp: timestamp },
+      ]);
       setAddModal(false);
       setProjectName("");
       setTaskDescription("");
