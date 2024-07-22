@@ -26,6 +26,19 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
     );
   };
 
+  const handleStop = () => {
+    setRunning(false);
+
+    let taskIndex = taskList.indexOf(task);
+
+    taskList.splice(taskIndex, 1, {
+      projectName: task.projectName,
+      taskDescription: task.taskDescription,
+      timestamp: task.timestamp,
+      duration: task.duration,
+    });
+  };
+
   return (
     <>
       <div
@@ -64,7 +77,7 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
             {running ? (
               <button
                 className="border rounded-lg py-1 px-3 "
-                onClick={() => setRunning(false)}
+                onClick={handleStop}
               >
                 Stop
               </button>
