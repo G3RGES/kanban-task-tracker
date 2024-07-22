@@ -70,7 +70,7 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
         </div>
         <p className="text-lg py-2 ">{task.taskDescription}</p>
 
-        <div className="w-full flex flex-row items-center justify-evenly ">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-center sm:justify-evenly ">
           <div className="w-1/4 text-xl font-semibold py-4 ">
             <span className="">
               {("0" + Math.floor((time / 360000) % 24)).slice(-2)}:
