@@ -7,6 +7,13 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
   const [running, setRunning] = useState(false);
   const [{ isDragging }, drag] = useDrag(() => ({
     type: "todo",
+    item: {
+      id: index,
+      projectName: task.projectName,
+      taskDescription: task.taskDescription,
+      timestamp: task.timestamp,
+      duration: task.duration,
+    },
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
@@ -54,7 +61,7 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
   return (
     <>
       <div
-        className="flex flex-col items-start justify-start bg-white my-4 ml-6 py-6 px-6
+        className="flex flex-col items-start justify-start bg-white my-4 py-6 px-6
       w-3/4 max-w-lg "
         ref={drag}
       >
@@ -71,7 +78,7 @@ const Todo = ({ task, index, taskList, setTaskList }) => {
         <p className="text-lg py-2 ">{task.taskDescription}</p>
 
         <div className="w-full flex flex-col sm:flex-row items-center justify-center sm:justify-evenly ">
-          <div className="w-1/4 text-xl font-semibold py-4 ">
+          <div className="sm:w-1/4 text-xl font-semibold py-4 ">
             <span className="">
               {("0" + Math.floor((time / 360000) % 24)).slice(-2)}:
             </span>
